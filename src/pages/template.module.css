@@ -1,0 +1,105 @@
+.templatesContainer {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+}
+
+
+.templatesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.templateCard {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 400px;
+  margin: 0 auto; 
+}
+
+.templateCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.previewImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.templateCard:hover .cardOverlay {
+  opacity: 1;
+}
+
+.templateName {
+  font-size: 1.75rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.useButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.useButton:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.useButton:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.errorText {
+    color: #e74c3c;
+    background-color: #fbecec;
+    border: 1px solid #e74c3c;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}

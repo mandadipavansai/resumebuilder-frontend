@@ -1,0 +1,78 @@
+.navbar {
+  background-color: var(--background-dark);
+  border-bottom: 1px solid var(--border-dark-theme);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-on-dark);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.logo {
+  height: 36px;
+  width: 36px;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.navLink {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  transition: var(--transition-main);
+}
+.navLink:hover {
+  color: var(--text-on-dark);
+}
+.welcomeMessage {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+.actionButton {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition-main);
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--shadow-sm);
+}
+.actionButton:hover {
+  background-color: var(--primary-blue-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.secondaryButton {
+  background-color: var(--border-dark-theme);
+  color: var(--text-on-dark);
+  box-shadow: none;
+}
+.secondaryButton:hover {
+  background-color: #4b5563;
+  color: #fff;
+  transform: translateY(-2px);
+}

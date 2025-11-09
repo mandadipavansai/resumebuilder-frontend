@@ -1,0 +1,108 @@
+.homeContainer {
+  padding: 4rem 2rem;
+}
+
+.heroSection {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 6rem auto;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #3730a3, #4f46e5);
+  
+
+  -webkit-background-clip: text;
+  
+
+  background-clip: text;
+  
+
+  -webkit-text-fill-color: transparent;
+  
+
+
+  color: transparent; 
+  
+  margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-slate-500);
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* --- FINAL FIX: The button style you requested --- */
+.ctaButton {
+  /* Default State: Blue button, white text */
+  background-color: var(--primary-blue);
+  color: #fff;
+  border: 2px solid var(--primary-blue);
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Capsule shape */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease-in-out; /* Animation */
+}
+
+.ctaButton:hover {
+  /* Hover State: White button, blue text */
+  background-color: #ffffff;
+  color: var(--primary-blue);
+  transform: translateY(-3px); /* Subtle lift animation */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+
+/* Features Section */
+.featuresSection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featuresTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: var(--text-slate-900);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  background: var(--card-background-white);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-slate-200);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.featureCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.featureCardText {
+  color: var(--text-slate-500);
+  font-size: 1rem;
+}

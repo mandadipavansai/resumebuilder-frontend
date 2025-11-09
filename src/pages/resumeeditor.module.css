@@ -1,0 +1,306 @@
+
+.editorLayout {
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    grid-template-columns: 60% 40%;
+    height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    animation: fadeInAnimation 0.5s ease-in-out; }
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.controlsHeader {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #fff;
+    padding: 0.75rem 2rem;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+
+.controls button {
+    padding: 0.8rem 1.6rem;
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: #6b7280; 
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.controls button:hover {
+    background-color: #f1f5f9;
+    color: #111827; 
+    transform: translateY(-2px);
+}
+
+
+.controls button.active {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    color: white;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+}
+
+
+.controls button[data-tooltip]::after,
+.saveButton[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.controls button[data-tooltip]:hover::after,
+.saveButton[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.saveButton {
+    background-color: #10b981 !important;  
+    color: white !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.saveButton:hover {
+    background-color: #059669 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+
+.leftPanelContainer, .rightPanelContainer {
+    display: flex; flex-direction: column; height: 100%; overflow: hidden;
+}
+
+.rightPanelContainer {
+    background-color: #ffffff; border-left: 1px solid #e5e7eb;
+}
+
+.panelContent {
+    overflow-y: auto; padding: 1.5rem 2rem; flex-grow: 1;
+}
+
+
+.formSection {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.formSection:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.07);
+}
+
+.formSection .sectionContent {
+    max-height: 0; padding: 0 1.5rem;
+    transition: all 0.4s ease-in-out; visibility: hidden;
+}
+
+.formSection.open .sectionContent {
+    max-height: 2000px; padding: 1.5rem; visibility: visible;
+}
+
+.header {
+    margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;
+}
+
+.title {
+    font-size: 1.75rem; color: #111827; margin: 0;
+}
+
+.actionButton {
+    background-color: #eef2ff; color: #4f46e5; border: none;
+    padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer;
+    font-weight: 600; display: flex; align-items: center; gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+    background-color: #e0e7ff; transform: scale(1.03);
+}
+
+.sectionHeader {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 1.5rem; cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sectionHeader:hover {
+    background-color: #f9fafb;
+}
+
+.sectionHeader h3 {
+    font-size: 1.1rem; font-weight: 600; margin: 0;
+}
+
+.sectionControls {
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.sectionControls button {
+    background: none; border: none; cursor: pointer;
+    color: #9ca3af; padding: 0.25rem;
+    transition: transform 0.2s ease;
+}
+.sectionControls button:hover {
+    color: #111827; transform: scale(1.2);
+}
+
+.chevron {
+    transition: transform 0.3s ease-in-out;
+}
+.open .chevron {
+    transform: rotate(180deg);
+}
+
+
+.inputField, input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%; padding: 0.8rem 1rem; border: 1px solid #e5e7eb;
+    border-radius: 8px; font-size: 1rem; margin-bottom: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s; background-color: #f9fafb;
+}
+.inputField:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+    outline: none; border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); background-color: #fff;
+}
+.inputRow {
+    display: flex; gap: 1rem; align-items: center;
+}
+.inputRow > * {
+    flex: 1;
+}
+
+
+.previewPanel {
+    height: 100%; display: flex; flex-direction: column;
+}
+.previewHeader {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem; flex-shrink: 0; padding: 0 2rem;
+}
+.previewHeader h3 { font-size: 1.25rem; font-weight: 600; }
+
+
+.updatePreviewButton {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    color: #6b7280;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+.updatePreviewButton:hover {
+    color: #4f46e5;
+    border-color: #4f46e5;
+    background-color: #f7f9fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+}
+.updatePreviewButton:active {
+    transform: translateY(0) scale(0.98);
+}
+.updatePreviewButton .spinning {
+    animation: spin 1s linear infinite;
+}
+
+.pdfViewer {
+    flex-grow: 1; background-color: #e5e7eb; border-radius: 8px;
+    position: relative; overflow: hidden; margin: 0 2rem 1.5rem 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.pdfPreview { width: 100%; height: 100%; border: none; }
+
+
+.subsection { border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; background-color: #fdfdff; }
+.subsectionHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.subsectionHeader h4 { margin: 0; }
+.subsectionHeader button { background: none; border: none; cursor: pointer; color: #9ca3af; padding: 0.25rem; }
+.subsectionHeader button:hover { color: #ef4444; }
+.addButton { background-color: transparent; border: 1px dashed #e5e7eb; color: #6b7280; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; }
+.addButton:hover { background-color: #f9fafb; border-color: #4f46e5; color: #4f46e5; }
+.inputWithAi { position: relative; margin-bottom: 1rem; }
+.inputWithAi textarea { min-height: 100px; padding-right: 3rem; }
+.inputWithAi input { padding-right: 3rem; }
+.inputControls { position: absolute; top: 0; right: 0; display: flex; gap: 0.25rem; padding: 0.5rem; opacity: 0; transition: opacity 0.2s; }
+.inputWithAi:hover .inputControls, .inputWithAi:focus-within .inputControls { opacity: 1; }
+.inputControls button { background: transparent; border: none; cursor: pointer; color: #6b7280; padding: 0.5rem; border-radius: 4px; transition: background-color 0.2s; }
+.inputControls button:hover { background-color: #eef2ff; color: #4f46e5; }
+.boldButton { font-weight: bold; }
+.modalOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.modalContent { background-color: #fff; padding: 2rem; border-radius: 12px; width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 1rem; }
+.modalContent h3 { margin-top: 0; font-size: 1.5rem; }
+.modalContent label { font-weight: 600; color: #111827; }
+.modalContent input, .modalContent select { width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+.modalActions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; }
+.cancelButton { background-color: #e5e7eb; color: #4b5563; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; }
+.aiPanel { height: 100%; display: flex; flex-direction: column; gap: 1.5rem; }
+.jobDescriptionContainer { border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: #fff; }
+.jobDescriptionHeader { padding: 1.25rem 1.5rem; background-color: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.jobDescriptionContent { padding: 1.5rem; border-top: 1px solid #e5e7eb; }
+.jobDescriptionContent textarea { min-height: 150px; resize: vertical; margin-bottom: 1rem; }
+.aiActionButton { width: 100%; padding: 0.8rem 1rem; border: none; border-radius: 8px; background-color: #4f46e5; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.aiResults { overflow-y: auto; flex-grow: 1; }
+.aiFeedbackSection { margin-bottom: 1.5rem; padding: 1.5rem; background-color: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
+.aiFeedbackSection h3 { display: flex; align-items: center; gap: 0.5rem; color: #4f46e5; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.75rem; margin-bottom: 1rem; }
+.scoreCircle { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#4f46e5 var(--score, 0deg), #e5e7eb 0deg); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 2rem; font-weight: bold; margin: 1rem auto 1.5rem auto; }
+.scoreCircle small { font-size: 0.8rem; font-weight: normal; color: #6b7280; }
+.suggestionList { list-style: none; padding: 0; }
+.suggestionList li { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.75rem; }
+.suggestionList svg { color: #10b981; margin-top: 4px; flex-shrink: 0; }
+.centeredMessage { display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280; font-size: 1.2rem; }
+.errorText { color: #ef4444; background-color: #fef2f2; padding: 1rem; border-radius: 8px; text-align: center; }
+.spinning { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
